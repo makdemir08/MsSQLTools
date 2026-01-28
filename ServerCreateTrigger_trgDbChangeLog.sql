@@ -69,7 +69,7 @@ BEGIN
 	SET @CommandText = (@EventData.value('(/EVENT_INSTANCE/TSQLCommand)[1]','nvarchar(50)'))
 	SET @AuditDateTime = GETDATE()
 
-	INSERT INTO	[GrapeERP].[Log].[DbChangeLog] (EventType,PostTime,SPID,ServerName,LoginName,UserName,DatabaseName,SchemaName,ObjectName,ObjectType,CommandText,AuditDateTime) 
+	INSERT INTO	[Log].[dbo].[DbChangeLog] (EventType,PostTime,SPID,ServerName,LoginName,UserName,DatabaseName,SchemaName,ObjectName,ObjectType,CommandText,AuditDateTime) 
 	VALUES (@EventType,@PostTime,@SPID,@ServerName,@LoginName,@UserName,@DatabaseName,@ShemaName,@ObjectName,@ObjectType,@CommandText,@AuditDateTime)
 END
 GO
